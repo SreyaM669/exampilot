@@ -1,0 +1,143 @@
+
+###
+POST http://127.0.0.1:8000/owner/register/
+Content-Type: application/json
+
+{
+    "username":"admin",
+    "email":"admin@gmail.com",
+    "password":"admin@123"
+}
+
+
+
+
+#api call for listing all assesments
+
+###
+GET http://127.0.0.1:8000/exam/assesments/
+Accept: application/json
+Authorization: Basic admin admin@123
+
+
+#api call for creating assesments
+
+###
+POST http://127.0.0.1:8000/exam/assesments/
+Content-Type: application/json
+Authorization: Basic admin admin@123
+
+{
+    "title":"PY-MAIN-EXAM",
+    "batch":"djangojulytcr",
+    "exam_date":"2025-10-23",
+    "start_time":"10:00",
+    "duration":2
+}
+
+
+#api call for fetching assesments details
+
+###
+GET http://127.0.0.1:8000/exam/assesments/3/
+Accept: application/json
+Authorization: Basic admin admin@123
+
+#api call for updating assesments
+
+###
+PUT http://127.0.0.1:8000/exam/assesments/4/
+Content-Type: application/json
+Authorization: Basic admin admin@123
+
+{
+    "title":"PY-MAIN-EXAM",
+    "batch":"djangojulytcr",
+    "exam_date":"2026-10-30",
+    "start_time":"3:00",
+    "duration":2
+}
+
+#api call for delete assesments
+
+###
+DELETE http://127.0.0.1:8000/exam/assesments/5
+/
+Accept: application/json
+Authorization: Basic admin admin@123
+
+
+#api call for adding questions
+
+###
+POST http://127.0.0.1:8000/assesments/3/question/
+Content-Type: application/json
+Authorization: Basic admin admin@123
+
+{
+    "title":"factorial of a number",
+    "description":"write a program to find factorial in a list",
+    "score":10,
+    "sample_input":"3",
+    "sample_output":"6",
+    "question_number":2
+}
+
+#api call for fetching question
+
+###
+GET http://127.0.0.1:8000/question/1/
+Accept: application/json
+Authorization: Basic admin admin@123
+
+
+#api call for creating student
+
+###
+POST http://127.0.0.1:8000/student/register/
+Content-Type: application/json
+
+{
+    "username":"minnu",
+    "email":"minnu@gmail.com",
+    "password":"minnu@123"
+    
+    }
+
+
+#api call for start submission
+
+###
+POST  http://127.0.0.1:8000/assesment/3/submission/
+Content-Type: application/json
+Authorization:Basic minnu:minnu@123
+
+#api call for adding answer
+###
+POST http://127.0.0.1:8000/submission/9/answer/
+Content-Type: application/json
+Authorization: Basic minnu:minnu@123
+
+{
+    "question":2,
+    "answer_text":"print(11)"
+}
+
+
+#submission detail
+
+###
+GET http://127.0.0.1:8000/submission/9/
+Accept: application/json
+Authorization: Basic admin:admin@123
+
+#answer update api call
+###
+PATCH http://127.0.0.1:8000/answer/2/
+Content-Type: application/json
+Authorization: Basic admin:admin@123
+
+{
+    "marks_awarded":5,
+    "feedback":"partial logic"
+}
